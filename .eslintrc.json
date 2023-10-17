@@ -1,0 +1,115 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.eslint.json"
+    },
+    "ignorePatterns": ["node_modules/", "dist/", "*.js"],
+    "plugins": ["@typescript-eslint", "solid", "prettier"],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      "plugin:solid/typescript",
+      "plugin:prettier/recommended",
+      "prettier"
+    ],
+    "overrides": [
+      {
+        "files": ["**/*.{ts,tsx}"],
+        "rules": {
+          "eqeqeq": "error", // Force ===
+          "prefer-const": "warn", // Use const for variable declarations when possible
+          "@typescript-eslint/no-empty-function": "off",
+          "@typescript-eslint/no-non-null-assertion": "off",
+          "@typescript-eslint/no-unused-vars": "warn",
+          // -- These rules from @typescript-eslint/recommended-requiring-type-checking are prone to false positives --
+          // See https://github.com/typescript-eslint/typescript-eslint/issues/3012
+          "@typescript-eslint/no-unsafe-argument": "warn",
+          "@typescript-eslint/no-unsafe-assignment": "warn",
+          "@typescript-eslint/no-unsafe-call": "warn",
+          "@typescript-eslint/no-unsafe-member-access": "warn",
+          "@typescript-eslint/no-unsafe-return": "warn",
+          "@typescript-eslint/restrict-template-expressions": [
+            // Warn if possible "[object Object]" (downgraded from error)
+            "warn",
+            {
+              "allowBoolean": true,
+              "allowNullish": true,
+              "allowNumber": true
+            }
+          ],
+          // --
+          "@typescript-eslint/naming-convention": [
+            // https://typescript-eslint.io/rules/naming-convention
+            "warn",
+            {
+              "selector": "typeLike", // class, enum, interface, type alias, type parameter
+              "format": ["PascalCase"]
+            },
+            {
+              "selector": "enumMember",
+              "format": ["PascalCase"]
+            },
+            {
+              "selector": "variable", // any let/var variable declaration
+              "format": ["camelCase"]
+            },
+            {
+              "selector": "variable",
+              "modifiers": ["const"],
+              "format": ["camelCase", "PascalCase", "UPPER_CASE"]
+            },
+            {
+              "selector": "function",
+              "format": ["camelCase", "PascalCase"]
+            },
+            {
+              "selector": "variableLike", // functions, parameter, variable
+              "format": ["camelCase"]
+            },
+            {
+              "selector": "memberLike", // accessor, method, parameterProperty, property
+              "format": ["camelCase"],
+              "leadingUnderscore": "forbid"
+            },
+            {
+              // disable rules for properties requiring quotes, e.g. 'Content-Type'
+              "selector": [
+                "classProperty",
+                "objectLiteralProperty",
+                "typeProperty"
+              ],
+              "modifiers": ["requiresQuotes"],
+              "format": null
+            },
+            {
+              // Object literal property names are often forced by third-party APIs, so a little flexibility for convenience
+              "selector": "objectLiteralProperty",
+              "format": ["camelCase", "PascalCase", "snake_case"]
+            }
+          ]
+        }
+      },
+      {
+        "files": ["*.d.ts"],
+        "rules": {
+          "@typescript-eslint/naming-convention": [
+            "error",
+            {
+              "selector": "memberLike", // accessor, method, parameterProperty, property
+              "format": null
+            }
+          ]
+        }
+      },
+      {
+        "files": ["**/*.test.{ts,tsx}"],
+        "plugins": ["vitest"],
+        "extends": ["plugin:vitest/recommended"],
+        "rules": {
+          "@typescript-eslint/unbound-method": "off" // false positives with some mocking styles
+        }
+      }
+    ]
+  }
