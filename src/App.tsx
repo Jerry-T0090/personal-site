@@ -16,10 +16,6 @@ const routes: RouteDefinition[] = [
     path: '/home',
     component: Home,
   },
-  {
-    path: '/experience',
-    component: Timeline,
-  },
 ];
 
 function App() {

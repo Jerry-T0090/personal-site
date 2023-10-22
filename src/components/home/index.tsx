@@ -1,20 +1,11 @@
-import { Motion } from '@motionone/solid';
-import {
-  useWindowScrollPosition,
-  createScrollPosition,
-} from '@solid-primitives/scroll';
-import solidLogo from '~/assets/solid.svg';
-import viteLogo from '/vite.svg';
-import { createEffect, createSignal } from 'solid-js';
-import { spring } from 'motion';
+import { createScrollPosition } from '@solid-primitives/scroll';
 import Timeline from '../experience';
 
 const Home = () => {
-  const [count, setCount] = createSignal(0);
-  const scroll = createScrollPosition();
+  const Windowscroll = createScrollPosition();
   return (
     <>
-      <div class="bg-center flex mt-24 justify-center h-full ">
+      <div class="bg-center flex mt-24 justify-center h-full">
         <img
           class="h-auto max-w-5xl rounded-lg shadow-xl dark:shadow-black"
           src="src/assets/hero1.jpg"
@@ -24,7 +15,7 @@ const Home = () => {
           <h1
             class=" text-heading  text-secondary font-yeseva self-start"
             style={{
-              transform: `translateX(${5 * scroll.y}px)`,
+              transform: `translateX(${5 * Windowscroll.y}px)`,
             }}
           >
             JERRY
@@ -32,7 +23,7 @@ const Home = () => {
           <h1
             class="text-heading  text-secondary font-yeseva self-start"
             style={{
-              transform: `translateX(${-5 * scroll.y}px)`,
+              transform: `translateX(${-5 * Windowscroll.y}px)`,
             }}
           >
             THERONIER
