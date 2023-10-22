@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.{html,scss}', './src/**/*.{tsx,scss}'],
+  content: ['./index.{html,scss}', './src/**/*.{tsx,scss}', "./node_modules/flowbite/**/*.js"],
   important: '#root',
   theme: {
     extend: {
@@ -17,6 +17,21 @@ export default {
         }
       },
     },
+    ringColor: {
+      primary: '#ebddc9',
+      secondary: '#d7c898',
+      interesting: '#df4c38'
+    },
+    backgroundColor: {
+      primary: '#ebddc9',
+      secondary: '#d7c898',
+      interesting: '#df4c38'
+    },
+    borderColor: {
+      primary: '#ebddc9',
+      secondary: '#d7c898',
+      interesting: '#df4c38'
+    },
     textColor: {
       primary: '#ebddc9',
       secondary: '#d7c898',
@@ -31,6 +46,8 @@ export default {
       yeseva: ['Yeseva One', 'serif'],
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin'),
+  ],
 }
 

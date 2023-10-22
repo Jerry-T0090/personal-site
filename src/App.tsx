@@ -1,7 +1,8 @@
-
 import './App.css';
+import 'flowbite';
 import { useNavigate, RouteDefinition, useRoutes } from '@solidjs/router';
 import Home from './components/home';
+import Timeline from './components/experience';
 
 const BaseRedirect = () => {
   const navigate = useNavigate();
@@ -14,6 +15,10 @@ const routes: RouteDefinition[] = [
   {
     path: '/home',
     component: Home,
+  },
+  {
+    path: '/experience',
+    component: Timeline,
   },
 ];
 

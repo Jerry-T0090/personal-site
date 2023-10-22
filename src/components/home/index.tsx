@@ -5,12 +5,13 @@ import {
 } from '@solid-primitives/scroll';
 import solidLogo from '~/assets/solid.svg';
 import viteLogo from '/vite.svg';
-import { createSignal } from 'solid-js';
+import { createEffect, createSignal } from 'solid-js';
 import { spring } from 'motion';
+import Timeline from '../experience';
 
 const Home = () => {
-  const scroll = createScrollPosition();
   const [count, setCount] = createSignal(0);
+  const scroll = createScrollPosition();
   return (
     <>
       <div class="bg-center flex mt-24 justify-center h-full ">
@@ -20,73 +21,25 @@ const Home = () => {
           alt="profile"
         />
         <div class="absolute top-[5%] left-1/4 w-[100px] h-[850px] flex flex-col justify-between ">
-          <Motion.h1
-            animate={{
-              transform: ['none', `translateX(${scroll.y / 5}vw)`],
+          <h1
+            class=" text-heading  text-secondary font-yeseva self-start"
+            style={{
+              transform: `translateX(${5 * scroll.y}px)`,
             }}
-            transition={{
-              easing: 'ease-in-out',
-            }}
-            class={`text-heading text-secondary self-start font-yeseva translate-x-[${
-              scroll.y / 5
-            }rem]`}
           >
             JERRY
-          </Motion.h1>
-          <Motion.h1
-            animate={{
-              transform: ['none', `translateX(${-scroll.y / 5}vw)`],
-            }}
+          </h1>
+          <h1
             class="text-heading  text-secondary font-yeseva self-start"
+            style={{
+              transform: `translateX(${-5 * scroll.y}px)`,
+            }}
           >
             THERONIER
-          </Motion.h1>
+          </h1>
         </div>
       </div>
-      <div class="flex flex-col mt-32">
-        <div>
-          <a href="https://vitejs.dev" target="_blank">
-            <img src={viteLogo} class="logo" alt="Vite logo" />
-          </a>
-          <a href="https://solidjs.com" target="_blank">
-            <img src={solidLogo} class="logo solid" alt="Solid logo" />
-          </a>
-        </div>
-        <h1>Vite + Solid</h1>
-        <div class="card">
-          <button onClick={() => setCount(count => count + 1)}>
-            count is {count()}
-          </button>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test HMR
-          </p>
-        </div>
-        <p class="read-the-docs">
-          Click on the Vite and Solid logos to learn more
-        </p>
-      </div>
-      <div class="flex flex-col mt-32">
-        <div>
-          <a href="https://vitejs.dev" target="_blank">
-            <img src={viteLogo} class="logo" alt="Vite logo" />
-          </a>
-          <a href="https://solidjs.com" target="_blank">
-            <img src={solidLogo} class="logo solid" alt="Solid logo" />
-          </a>
-        </div>
-        <h1>Vite + Solid</h1>
-        <div class="card">
-          <button onClick={() => setCount(count => count + 1)}>
-            count is {count()}
-          </button>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test HMR
-          </p>
-        </div>
-        <p class="read-the-docs">
-          Click on the Vite and Solid logos to learn more
-        </p>
-      </div>
+      <Timeline />
     </>
   );
 };
