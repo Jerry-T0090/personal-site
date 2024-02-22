@@ -1,5 +1,6 @@
 import { createScrollPosition } from '@solid-primitives/scroll';
 import Timeline from '../experience';
+import Projects from '../projects';
 
 const Home = () => {
   const Windowscroll = createScrollPosition();
@@ -31,6 +32,8 @@ const Home = () => {
         </div>
       </div>
       <Timeline />
+      <Projects />
+      <div class="h-96">place holder for additional</div>
     </>
   );
 };

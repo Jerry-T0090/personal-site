@@ -17,7 +17,7 @@ const Timeline = () => {
     });
   });
   return (
-    <div class="mt-52">
+    <div class="mt-40">
       <h1 class="text-primary text-heading">EXPERIENCE</h1>
       <div class="flex">
         <div
@@ -26,7 +26,6 @@ const Timeline = () => {
         />
         <div
           class="w-max snap-mandatory snap-y flex flex-col items-center h-[600px] px-2 gap-7 scroll-smooth overflow-y-scroll overflow-x-hidden no-scrollbar"
-          id="section"
           ref={containerRef}
         >
           <For each={experiences}>
