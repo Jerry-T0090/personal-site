@@ -9,8 +9,8 @@ type Timelineprops = {
 const Timeline = () => {
   let containerRef: HTMLDivElement | undefined;
   let progressRef: HTMLDivElement | undefined;
+
   onMount(() => {
-    console.log(containerRef);
     scroll(animate(progressRef!, { scaleY: [0, 1] }), {
       container: containerRef,
       axis: 'y',
@@ -25,7 +25,7 @@ const Timeline = () => {
           ref={progressRef}
         />
         <div
-          class="snap-mandatory snap-y flex flex-col items-center h-[600px] px-2 gap-7 scroll-smooth overflow-y-scroll overflow-x-hidden no-scrollbar"
+          class="w-max snap-mandatory snap-y flex flex-col items-center h-[600px] px-2 gap-7 scroll-smooth overflow-y-scroll overflow-x-hidden no-scrollbar"
           id="section"
           ref={containerRef}
         >
