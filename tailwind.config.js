@@ -25,7 +25,8 @@ export default {
     backgroundColor: {
       primary: '#ebddc9',
       secondary: '#d7c898',
-      interesting: '#df4c38'
+      interesting: '#df4c38',
+      black: '#191919'
     },
     borderColor: {
       primary: '#ebddc9',
@@ -39,8 +40,9 @@ export default {
     },
     fontSize: {
       heading: `13rem`,
-      title: `3.6rem;`,
-      paragraph: `1.2rem;`
+      title: `3.6rem`,
+      paragraph: `1.2rem`,
+      card: `2rem`,
     },
     fontFamily: {
       yeseva: ['Yeseva One', 'serif'],
