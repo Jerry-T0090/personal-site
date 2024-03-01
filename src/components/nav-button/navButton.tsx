@@ -4,6 +4,7 @@ import { IconButton, Menu, MenuItem, MenuList } from '@suid/material';
 import { createMemo, createSignal } from 'solid-js';
 import { ExperienceContainer } from '../experience';
 import { ProjectContainer } from '../projects';
+import { setOpenModal } from '../resume';
 
 const NavButton = () => {
   const [anchorEl, setAnchorEl] = createSignal<null | HTMLElement>(null);
@@ -57,7 +58,15 @@ const NavButton = () => {
         >
           Projects
         </MenuItem>
-        <MenuItem style={{ color: '#df4c38' }}>Resume</MenuItem>
+        <MenuItem
+          style={{ color: '#df4c38' }}
+          onClick={() => {
+            setOpenModal(prev => !prev);
+            handleClose();
+          }}
+        >
+          Resume
+        </MenuItem>
       </Menu>
     </>
   );

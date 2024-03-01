@@ -3,6 +3,7 @@ import Timeline from '../experience';
 import Projects from '../projects';
 import NavButton from '../nav-button/navButton';
 import Title from '../title/Title';
+import Resume from '../resume';
 
 const Home = () => {
   const windowScroll = createScrollPosition();
@@ -37,6 +38,7 @@ const Home = () => {
       </div>
       <Timeline />
       <Projects />
+      <Resume />
     </>
   );
 };
