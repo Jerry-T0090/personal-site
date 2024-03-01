@@ -1,11 +1,19 @@
 import { Button } from '@suid/material';
+import { setOpenModal } from '../resume';
 const Footer = () => {
   return (
     <div class="w-[100vw] h-fit absolute left-0 flex flex-col bg-black items-center">
       <a target="_blank" href="https://github.com/Jerry-T0090">
         <Button sx={{ color: '#df4c38' }}>Github</Button>
       </a>
-      <Button sx={{ color: '#df4c38' }}>Resume</Button>
+      <Button
+        sx={{ color: '#df4c38' }}
+        onClick={() => {
+          setOpenModal(prev => !prev);
+        }}
+      >
+        Resume
+      </Button>
       <Button sx={{ color: '#df4c38' }} href="mailto:jerrytheronier@gmail.com">
         Contact
       </Button>
